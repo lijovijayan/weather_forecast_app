@@ -10,17 +10,17 @@ interface Props {
   route: {
     params: {
       countries: ICountry[];
-      navigation: any,
     };
   };
+  navigation: any,
 }
-export function AppFormData({ route }: Props) {
+export function AppFormData({ route, navigation }: Props) {
   function renderCounties() {
     return route.params.countries.map((country, index) => (
       <CountryCard
         key={`country-${index}`}
         country={country}
-        navigation={route.params.navigation}
+        navigation={navigation}
       />
     ));
   }

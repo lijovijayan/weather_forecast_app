@@ -31,7 +31,6 @@ export function AppForm({ navigation }: Props) {
       });
       navigation.navigate("country-data", {
         countries: resultSet,
-        navigation: navigation,
       });
     } catch (err) {
       console.log(err);
