@@ -10,13 +10,18 @@ interface Props {
   route: {
     params: {
       countries: ICountry[];
+      navigation: any,
     };
   };
 }
 export function AppFormData({ route }: Props) {
   function renderCounties() {
     return route.params.countries.map((country, index) => (
-      <CountryCard key={`country-${index}`} country={country} />
+      <CountryCard
+        key={`country-${index}`}
+        country={country}
+        navigation={route.params.navigation}
+      />
     ));
   }
   return (

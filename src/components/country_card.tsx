@@ -10,8 +10,9 @@ import {
 import { Weather } from "../services/weather.service";
 interface Props {
   country: ICountry;
+  navigation: any;
 }
-export function CountryCard({ country }: Props) {
+export function CountryCard({ country, navigation }: Props) {
   async function getWeatherData(capital: string) {
     try {
       const { data } = await Weather.getWeatherByCapital(capital);
@@ -22,6 +23,9 @@ export function CountryCard({ country }: Props) {
         wind_speed: data.current.wind_speed,
         precip: data.current.precip,
       };
+      navigation.navigate("weather-data", {
+        weather: weather,
+      });
       console.log(weather);
     } catch (err) {
       console.log(err);
