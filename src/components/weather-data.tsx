@@ -1,5 +1,11 @@
 import React, { useEffect } from "react";
-import { Text, TextInput, TouchableNativeFeedback, View } from "react-native";
+import {
+  Text,
+  TextInput,
+  TouchableNativeFeedback,
+  View,
+  Image,
+} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { SvgUri } from "react-native-svg";
 import { Country } from "../services/country.service";
@@ -30,6 +36,13 @@ export function WeatherData({ route }: Props) {
         <Text> temperature : {weather.temperature}</Text>
         <Text> wind_speed : {weather.wind_speed}</Text>
       </View>
+      <View style={styles["flex-1"]} />
+      <Image
+        source={{
+          uri: weather.weather_icon,
+        }}
+        style={{ width: 100, height: 100 }}
+      />
     </View>
   );
 }
