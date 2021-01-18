@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Text, TextInput, TouchableNativeFeedback, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { Country } from "../services/country.service";
 import { Weather } from "../services/weather.service";
 import { styles } from "../styles";
@@ -13,18 +14,16 @@ interface Props {
   };
 }
 export function AppFormData({ route }: Props) {
-  useEffect(() => {
-    Weather.getWeatherByCapital('India');
-  }, []);
   function renderCounties() {
     return route.params.countries.map((country, index) => (
       <CountryCard key={`country-${index}`} country={country} />
     ));
   }
   return (
-    <View style={[styles["d-flex"], styles["flex-column"]]}>
-      <Text> form data</Text>
-      {renderCounties()}
-    </View>
+    <ScrollView>
+      <View style={[styles["d-flex"], styles["flex-column"]]}>
+        {renderCounties()}
+      </View>
+    </ScrollView>
   );
 }

@@ -29,7 +29,7 @@ export function AppForm({ navigation }: Props) {
           flag: country.flag,
         });
       });
-      navigation.navigate("form-data", {
+      navigation.navigate("country-data", {
         countries: resultSet,
       });
     } catch (err) {

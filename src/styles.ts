@@ -38,5 +38,16 @@ export const styles = StyleSheet.create({
   },
   "w-100": {
     width: "100%",
+  },
+  "flex-1": {
+    flex: 1,
+  },
+  card: {
+    padding: 10,
+    borderRadius: 5,
+    elevation: 1,
+  },
+  cardContainer: {
+    padding: 10,
   }
 });
